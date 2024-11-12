@@ -34,11 +34,11 @@ app.get('/api/tasks', (req, res) => {
 app.get('/api/tasks/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const task = data.find((item) => item.id === id);
-    // if (task) {
-    //     response.json(task);
-    // } else {
-    //     res.status(404).json({ message: 'Tarea no Encontrada'})
-    // }
+    if (task) {
+        response.json(task);
+    } else {
+        res.status(404).json({ message: 'Tarea no Encontrada'})
+    }
 });
 
 // [POST] Agrega una Tarea
@@ -56,13 +56,13 @@ app.put('/api/tasks/:id', (req, res) => {
     const { title, description } = req.body;
     const task = data.find((item) => item.id === id);
 
-    // if (task) {
-    //     task.title = title || task.title;
-    //     task.description = description || task.description;
-    //     res.json(task);
-    //   } else {
-    //     res.status(404).json({ message: 'Tarea no Encontrada' });
-    //   }
+    if (task) {
+        task.title = title || task.title;
+        task.description = description || task.description;
+        res.json(task);
+      } else {
+        res.status(404).json({ message: 'Tarea no Encontrada' });
+      }
 });
 
 //[DELETE] Borra una Tarea 
