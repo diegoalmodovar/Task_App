@@ -15,7 +15,7 @@ const TaskDetail = ({ taskId }) => {
 
   // If task data is not loaded yet, display loading message
   if (!task) {
-    return <div>Loading...</div>;
+    return <div>Cargando</div>;
   }
 
   // Muestra Detalles en Pantalla

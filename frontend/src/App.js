@@ -1,3 +1,5 @@
+import './App.css'; // Import CSS File
+
 
 import React from 'react';
 import ListTask from './ListTask';
@@ -6,12 +8,17 @@ import DetailTask from './DetailTask';
 
 const App = () => {
   return (
-    <div>
-      <ListTask />
-      <FormTask />
-      <DetailTask taskId={1} /> {}
+    <div className="app-container">
+      <div className="section">
+        <ListTask />
+      </div>
+      <div className="section">
+        <FormTask />
+      </div>
+      <div className="section">
+        <DetailTask taskId={1} />
+      </div>
     </div>
   );
 };
-
 export default App;

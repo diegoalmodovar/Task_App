@@ -11,35 +11,35 @@ const FormTask = () => {
 
     axios.post('http://localhost:5000/api/tasks', newTask)
       .then((response) => {
-        console.log(response.data); 
+        console.log(response.data);
         //
         setTitle('');
         setDescription('');
       })
-      .catch((error) => console.error("Error adding task:", error));
+      .catch((error) => console.error("Error: ", error));
   };
 
   return (
     <div>
-      <h2>Add New Task</h2>
+      <h2>Agrega Nuevas Tareas</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
+        <div className="form-group">
+          <label>Titulo:</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div>
-          <label>Description:</label>
+        <div className="form-group">
+                    <label>Descripcion:</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <div>
-          <button type="submit">Add Task</button>
+          <button type="submit">Agregar Tarea</button>
         </div>
       </form>
     </div>
