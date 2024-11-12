@@ -3,17 +3,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const FormTask = () => {
-  const [title, setTitle] = useState('');            // State for title input
-  const [description, setDescription] = useState(''); // State for description input
-
+  const [title, setTitle] = useState('');            // Input Titulo
+  const [description, setDescription] = useState(''); // Input Desc.
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTask = { title, description };
 
     axios.post('http://localhost:5000/api/tasks', newTask)
       .then((response) => {
-        console.log(response.data);  // Log the new task data
-        // Optionally reset the form fields after successful submission
+        console.log(response.data); 
+        //
         setTitle('');
         setDescription('');
       })
